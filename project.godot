@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="pet_clicker"
+run/main_scene="uid://cqtswut1j7iw7"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://assets/sprites/icon.svg"
+
+[autoload]
+
+Globals="*uid://d27lr8kxp1xi8"
 
 [display]
 
@@ -22,6 +27,10 @@ window/stretch/aspect="expand"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
+[gui]
+
+common/snap_controls_to_pixels=false
 
 [physics]
 
