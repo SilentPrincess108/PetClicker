@@ -46,3 +46,7 @@ func _button_un_hover() -> void:
 		animation_tween.kill()
 	animation_tween = create_tween().set_trans(Tween.TRANS_SINE)
 	animation_tween.tween_property(self, "scale", Vector2.ONE, un_hover_animation_length)
+	
+#TB implemented
+func _set_texture() -> void:
+	pass

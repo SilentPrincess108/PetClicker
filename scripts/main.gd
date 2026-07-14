@@ -1,7 +1,8 @@
 extends Control
 
 @onready var num_clicks: Label = $mainPanel/numClicks
-@onready var clicky: AnimatedButton = $mainPanel/CenterContainer/clicky
+@onready var pet: PetButton = $mainPanel/CenterContainer/PetButton
+
 
 @onready var item: AnimatedButton = $shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/item
 
@@ -11,15 +12,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	num_clicks.text = "Clicks: " + str(Globals.clicks)
 
+func _on_pet_button_pressed() -> void:
+	print("woof woof")
+	Globals.clicks += 1
 
 func _on_item_pressed() -> void:
 	Globals.checkClicks(item.itemCost)
-
-func _on_clicky_pressed() -> void:
-	Globals.clicks += 1
-
-func _on_clicky_mouse_entered() -> void:
-	print("mouse entered temp pet")
-
-func _on_clicky_mouse_exited() -> void:
-	print("mouse exited temp pet")

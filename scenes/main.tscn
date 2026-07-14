@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://q6c0ck1lp7a4" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://bicgkeei5q221" path="res://assets/sprites/icon.svg" id="3_jyhfs"]
+[ext_resource type="Script" uid="uid://drptp6mt3i2sm" path="res://scripts/pet_button.gd" id="3_tbgi4"]
 [ext_resource type="Script" uid="uid://c2pvxpxcr5ojx" path="res://scripts/item.gd" id="4_jyhfs"]
-[ext_resource type="Script" uid="uid://cbjhinlg0pq4h" path="res://scripts/animated_button.gd" id="4_tbgi4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4sdr"]
 bg_color = Color(0.59607846, 0.75686276, 0.8509804, 1)
@@ -44,11 +44,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="clicky" type="TextureButton" parent="mainPanel/CenterContainer" unique_id=1148252007]
+[node name="PetButton" type="TextureButton" parent="mainPanel/CenterContainer" unique_id=247965247]
 layout_mode = 2
 texture_normal = ExtResource("3_jyhfs")
-script = ExtResource("4_tbgi4")
-metadata/_custom_type_script = "uid://cbjhinlg0pq4h"
+script = ExtResource("3_tbgi4")
+metadata/_custom_type_script = "uid://drptp6mt3i2sm"
 
 [node name="shopPanel" type="Panel" parent="." unique_id=1504003899]
 layout_mode = 1
@@ -95,12 +95,10 @@ size_flags_vertical = 3
 theme_override_constants/separation = 20
 
 [node name="item" type="TextureButton" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=148696040]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(290, 100)
 layout_mode = 2
 texture_normal = ExtResource("3_jyhfs")
 script = ExtResource("4_jyhfs")
 
-[connection signal="mouse_entered" from="mainPanel/CenterContainer/clicky" to="." method="_on_clicky_mouse_entered"]
-[connection signal="mouse_exited" from="mainPanel/CenterContainer/clicky" to="." method="_on_clicky_mouse_exited"]
-[connection signal="pressed" from="mainPanel/CenterContainer/clicky" to="." method="_on_clicky_pressed"]
+[connection signal="pressed" from="mainPanel/CenterContainer/PetButton" to="." method="_on_pet_button_pressed"]
 [connection signal="pressed" from="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/item" to="." method="_on_item_pressed"]
