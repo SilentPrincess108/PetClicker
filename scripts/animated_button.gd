@@ -36,6 +36,7 @@ func _button_hover() -> void:
 	if animation_tween: #check if tween currently running
 		animation_tween.kill() #if so, kill it
 	animation_tween = create_tween().set_trans(Tween.TRANS_SINE)
+	animation_tween.set_ease(Tween.EASE_OUT)
 	animation_tween.tween_property(self, "scale", hover_scale, hover_animation_length)
 
 func _button_un_hover() -> void:

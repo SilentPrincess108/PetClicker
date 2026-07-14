@@ -1,10 +1,10 @@
-extends Node2D
-@onready var clicky: TextureButton = $clicky
-@onready var num_clicks: Label = $numClicks
+extends Control
+
+@onready var num_clicks: Label = $mainPanel/numClicks
+@onready var clicky: AnimatedButton = $mainPanel/CenterContainer/clicky
 
 func _ready() -> void:
-	clicky.position.x = 576
-	clicky.position.y = 324
+	print("game start")
 	
 func _process(_delta: float) -> void:
 	num_clicks.text = "Clicks: " + str(Globals.clicks)
