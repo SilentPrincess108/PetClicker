@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bxt1jtqnn2pnl"]
+
+[ext_resource type="Script" uid="uid://drptp6mt3i2sm" path="res://scripts/pet_button.gd" id="1_yb4s1"]
+
+[node name="PetButton" type="TextureButton" unique_id=1730670897]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_yb4s1")

@@ -24,7 +24,6 @@ func _ready() -> void:
 	pivot_offset_ratio = Vector2.ONE / 2.0 #sets origin of button to center
 
 func _button_press() -> void:
-	Globals.clicks += 1
 	if animation_tween:
 		animation_tween.kill()
 	animation_tween = create_tween().set_trans(Tween.TRANS_SINE)

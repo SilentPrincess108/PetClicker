@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://q6c0ck1lp7a4" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://bicgkeei5q221" path="res://assets/sprites/icon.svg" id="3_jyhfs"]
+[ext_resource type="Script" uid="uid://c2pvxpxcr5ojx" path="res://scripts/item.gd" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://cbjhinlg0pq4h" path="res://scripts/animated_button.gd" id="4_tbgi4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4sdr"]
@@ -93,32 +94,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 20
 
-[node name="Button" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=555348442]
+[node name="item" type="TextureButton" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=148696040]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-text = "BUTTON"
+texture_normal = ExtResource("3_jyhfs")
+script = ExtResource("4_jyhfs")
 
-[node name="Button2" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=873348438]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-text = "BUTTON"
-
-[node name="Button3" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1601509919]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-text = "BUTTON"
-
-[node name="Button4" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1410641950]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-text = "BUTTON"
-
-[node name="Button5" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=373032930]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-text = "BUTTON"
-
-[node name="Button6" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1514371849]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-text = "BUTTON"
+[connection signal="mouse_entered" from="mainPanel/CenterContainer/clicky" to="." method="_on_clicky_mouse_entered"]
+[connection signal="mouse_exited" from="mainPanel/CenterContainer/clicky" to="." method="_on_clicky_mouse_exited"]
+[connection signal="pressed" from="mainPanel/CenterContainer/clicky" to="." method="_on_clicky_pressed"]
+[connection signal="pressed" from="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/item" to="." method="_on_item_pressed"]
