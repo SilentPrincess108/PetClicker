@@ -1,6 +1,7 @@
 extends Node
 
 var clicks: int = 0
+var numClick: int = 1
 var petTypes: Array = ["dog", "cat"]
 var animal: String = ""
 var itemTypes: Array = ["mouse", "background", "skin", "custom skin"]
@@ -27,6 +28,7 @@ func changeMouse(item):
 	else:
 		previousMouse = currentMouse
 		previousMouse.inUse = false
+	numClick = item.clickNum
 	currentMouse = item
 	currentMouse.inUse = true
 	
