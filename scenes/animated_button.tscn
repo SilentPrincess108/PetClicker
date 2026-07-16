@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cbjhinlg0pq4h" path="res://scripts/animated_button.gd" id="1_y1qn5"]
 
-[node name="AnimatedButton" type="TextureButton" unique_id=1866122149]
+[node name="AnimatedButton" type="Button" unique_id=870795415]
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_y1qn5")

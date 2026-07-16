@@ -34,14 +34,12 @@ func _button_press() -> void:
 	animation_tween.chain().tween_property(self, "scale", hover_scale, press_animation_length_2)
 
 func _button_hover() -> void:
-	print("mouse entered real pet")
 	if animation_tween:
 		animation_tween.kill()
 	animation_tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	animation_tween.tween_property(self, "scale", hover_scale, hover_animation_length)
 
 func _button_un_hover() -> void:
-	print("mouse exited real pet")
 	if animation_tween:
 		animation_tween.kill()
 	animation_tween = create_tween().set_trans(Tween.TRANS_SINE)

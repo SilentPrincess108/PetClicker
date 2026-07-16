@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cpcpaxsqnuwft"]
 
 [ext_resource type="Script" uid="uid://q6c0ck1lp7a4" path="res://scripts/main.gd" id="1_o5qli"]
-[ext_resource type="Texture2D" uid="uid://bicgkeei5q221" path="res://assets/sprites/icon.svg" id="3_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://drs0oib7dkjso" path="res://assets/sprites/neodog.png" id="2_tbgi4"]
 [ext_resource type="Script" uid="uid://drptp6mt3i2sm" path="res://scripts/pet_button.gd" id="3_tbgi4"]
-[ext_resource type="Script" uid="uid://c2pvxpxcr5ojx" path="res://scripts/item.gd" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://c2pvxpxcr5ojx" path="res://scripts/item.gd" id="5_tbgi4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4sdr"]
 bg_color = Color(0.59607846, 0.75686276, 0.8509804, 1)
@@ -46,7 +46,7 @@ grow_vertical = 2
 
 [node name="PetButton" type="TextureButton" parent="mainPanel/CenterContainer" unique_id=247965247]
 layout_mode = 2
-texture_normal = ExtResource("3_jyhfs")
+texture_normal = ExtResource("2_tbgi4")
 script = ExtResource("3_tbgi4")
 metadata/_custom_type_script = "uid://drptp6mt3i2sm"
 
@@ -85,8 +85,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 0
+theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer" unique_id=408754062]
 layout_mode = 2
@@ -94,11 +95,35 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 20
 
-[node name="item" type="TextureButton" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=148696040]
-custom_minimum_size = Vector2(290, 100)
+[node name="Button" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=100255145]
 layout_mode = 2
-texture_normal = ExtResource("3_jyhfs")
-script = ExtResource("4_jyhfs")
+text = "Bone - 5"
+script = ExtResource("5_tbgi4")
+itemName = "bone"
+itemType = "mouse"
+itemCost = 5
+
+[node name="Button2" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1655809788]
+layout_mode = 2
+text = "Ball - 10"
+script = ExtResource("5_tbgi4")
+itemName = "ball"
+itemType = "mouse"
+
+[node name="Button3" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=3154255]
+layout_mode = 2
+text = "Fish - 3"
+script = ExtResource("5_tbgi4")
+itemName = "fish"
+itemType = "mouse"
+itemCost = 3
+
+[node name="Button4" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1702574478]
+layout_mode = 2
+text = "Dog Treat - 20"
+script = ExtResource("5_tbgi4")
+itemName = "treat"
+itemType = "mouse"
+itemCost = 20
 
 [connection signal="pressed" from="mainPanel/CenterContainer/PetButton" to="." method="_on_pet_button_pressed"]
-[connection signal="pressed" from="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/item" to="." method="_on_item_pressed"]
