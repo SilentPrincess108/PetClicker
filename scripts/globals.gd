@@ -31,6 +31,8 @@ func changeMouse(item):
 	numClick = item.clickNum
 	currentMouse = item
 	currentMouse.inUse = true
+	var cursor = load(item.cursor)
+	Input.set_custom_mouse_cursor(cursor, Input.CURSOR_ARROW, Vector2(16, 16))
 	
 	#testing
 	print(previousMouse.itemName)

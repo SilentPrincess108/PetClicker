@@ -5,6 +5,7 @@ extends AnimatedButton
 @export var itemType: String = ""
 @export var itemCost: int = 10
 @export var clickNum: int = 0
+@export var cursor: String = ""
 
 @onready var tooltip: PanelContainer = $tooltip
 

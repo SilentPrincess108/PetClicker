@@ -96,7 +96,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 20
 
-[node name="Button" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=100255145]
+[node name="bone" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=100255145]
 layout_mode = 2
 text = "Bone - 5"
 script = ExtResource("5_tbgi4")
@@ -105,11 +105,12 @@ itemDesc = "A skin for your cursor! Increases clicks to 2/click."
 itemType = "mouse"
 itemCost = 5
 clickNum = 2
+cursor = "res://assets/sprites/bone.png"
 
-[node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Button" unique_id=1322582082 instance=ExtResource("5_tefeu")]
+[node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/bone" unique_id=1322582082 instance=ExtResource("5_tefeu")]
 layout_mode = 0
 
-[node name="Button2" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1655809788]
+[node name="ball" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1655809788]
 layout_mode = 2
 text = "Ball - 10"
 script = ExtResource("5_tbgi4")
@@ -117,13 +118,14 @@ itemName = "ball"
 itemDesc = "A skin for your cursor! Increases clicks to 5/click."
 itemType = "mouse"
 clickNum = 5
+cursor = "res://assets/sprites/ball.png"
 
-[node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Button2" unique_id=1200829809 instance=ExtResource("5_tefeu")]
+[node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/ball" unique_id=1200829809 instance=ExtResource("5_tefeu")]
 layout_mode = 0
 offset_top = -51.0
 offset_bottom = 49.0
 
-[node name="Button3" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=3154255]
+[node name="fih" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=3154255]
 layout_mode = 2
 text = "Fish - 3"
 script = ExtResource("5_tbgi4")
@@ -132,13 +134,14 @@ itemDesc = "A skin for your cursor! Increases clicks to 1/click."
 itemType = "mouse"
 itemCost = 3
 clickNum = 1
+cursor = "res://assets/sprites/fih.png"
 
-[node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Button3" unique_id=1593211361 instance=ExtResource("5_tefeu")]
+[node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/fih" unique_id=1593211361 instance=ExtResource("5_tefeu")]
 layout_mode = 0
 offset_top = -102.0
 offset_bottom = -2.0
 
-[node name="Button4" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1702574478]
+[node name="treat" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1702574478]
 layout_mode = 2
 text = "Dog Treat - 20"
 script = ExtResource("5_tbgi4")
@@ -147,8 +150,9 @@ itemDesc = "A skin for your cursor! Increases clicks to 10/click."
 itemType = "mouse"
 itemCost = 20
 clickNum = 10
+cursor = "res://assets/sprites/treat.png"
 
-[node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Button4" unique_id=54906792 instance=ExtResource("5_tefeu")]
+[node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/treat" unique_id=54906792 instance=ExtResource("5_tefeu")]
 layout_mode = 0
 offset_top = -153.0
 offset_bottom = -53.0
