@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://drptp6mt3i2sm" path="res://scripts/pet_button.gd" id="3_tbgi4"]
 [ext_resource type="Script" uid="uid://c2pvxpxcr5ojx" path="res://scripts/item.gd" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://byf5lvn77q0mu" path="res://scenes/tooltip.tscn" id="5_tefeu"]
+[ext_resource type="Script" uid="uid://cjfl034haqax6" path="res://scripts/background.gd" id="6_tefeu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qpoh"]
 bg_color = Color(0.23921569, 0.3529412, 0.5019608, 1)
@@ -24,6 +25,7 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 822.0
 grow_vertical = 2
+expand_mode = 2
 
 [node name="numClicks" type="Label" parent="mainPanel" unique_id=868152727]
 layout_mode = 1
@@ -152,5 +154,61 @@ cursor = "res://assets/sprites/treat.png"
 layout_mode = 0
 offset_top = -153.0
 offset_bottom = -53.0
+
+[node name="blue_bg" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=323168151]
+layout_mode = 2
+text = "Blue Background"
+script = ExtResource("6_tefeu")
+itemName = "Blue Background"
+itemDesc = "Themed bg!"
+itemType = "background"
+itemCost = 100
+bg_file = "res://assets/sprites/star-blue.png"
+metadata/_custom_type_script = "uid://cbjhinlg0pq4h"
+
+[node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/blue_bg" unique_id=1265030095 instance=ExtResource("5_tefeu")]
+layout_mode = 0
+
+[node name="green_bg" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=592622435]
+layout_mode = 2
+text = "Green Background"
+script = ExtResource("6_tefeu")
+itemName = "Green Background"
+itemDesc = "A green bg!"
+itemType = "background"
+itemCost = 100
+bg_file = "res://assets/sprites/star-green.png"
+metadata/_custom_type_script = "uid://cbjhinlg0pq4h"
+
+[node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/green_bg" unique_id=1601588532 instance=ExtResource("5_tefeu")]
+layout_mode = 0
+
+[node name="pink_bg" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=315130245]
+layout_mode = 2
+text = "Pink Background"
+script = ExtResource("6_tefeu")
+itemName = "Pink Background"
+itemDesc = "A pink bg!"
+itemType = "background"
+itemCost = 100
+bg_file = "res://assets/sprites/star-pink.png"
+metadata/_custom_type_script = "uid://cbjhinlg0pq4h"
+
+[node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/pink_bg" unique_id=1118841407 instance=ExtResource("5_tefeu")]
+layout_mode = 0
+
+[node name="purple_bg" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=441134338]
+layout_mode = 2
+text = "Purple Background"
+script = ExtResource("6_tefeu")
+itemName = "Purple Background"
+itemDesc = "A purple bg!"
+itemType = "background"
+itemCost = 100
+bg_file = "res://assets/sprites/star-purple.png"
+metadata/_custom_type_script = "uid://cbjhinlg0pq4h"
+
+[node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/purple_bg" unique_id=1644501331 instance=ExtResource("5_tefeu")]
+layout_mode = 0
 
 [connection signal="pressed" from="mainPanel/CenterContainer/PetButton" to="." method="_on_pet_button_pressed"]

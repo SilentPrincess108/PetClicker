@@ -23,6 +23,8 @@ func checkClicks(item):
 		print()
 		if item.itemType == "mouse":
 			changeMouse(item)
+		if item.itemType == "background":
+			changeBackground(item)
 		return true
 
 func changeMouse(item):

@@ -3,7 +3,7 @@ extends AnimatedButton
 @export var itemName: String = ""
 @export var itemDesc: String = ""
 @export var itemType: String = ""
-@export var itemCost: String = ""
+@export var itemCost: int = 0
 @export var bg_file: String = ""
 
 @onready var tooltip: PanelContainer = $tooltip
