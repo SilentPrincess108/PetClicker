@@ -5,8 +5,13 @@ var numClick: int = 1
 var petTypes: Array = ["dog", "cat"]
 var animal: String = ""
 var itemTypes: Array = ["mouse", "background", "skin", "custom skin"]
+
 var currentMouse: Button
 var previousMouse: Button
+
+var currentBg: Button
+var previousBg: Button
+signal backgroundChanged(bg)
 
 func checkClicks(item):
 	if item.itemCost > clicks:
@@ -38,4 +43,18 @@ func changeMouse(item):
 	print(previousMouse.itemName)
 	print(currentMouse.itemName)
 	print()
+	
+func changeBackground(item):
+	print()
+	print("Changing background")
+	if previousBg == null:
+		previousBg = item
+	else:
+		previousBg = currentBg
+		previousBg.inUse = false
+	currentBg = item
+	currentBg.inUse = true
+	var bg = load(item.bg_file)
+	backgroundChanged.emit(bg)
+	
 	
