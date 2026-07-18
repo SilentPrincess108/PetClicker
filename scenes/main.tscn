@@ -3,12 +3,58 @@
 [ext_resource type="Script" uid="uid://q6c0ck1lp7a4" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://drs0oib7dkjso" path="res://assets/sprites/neodog.png" id="2_tbgi4"]
 [ext_resource type="Script" uid="uid://drptp6mt3i2sm" path="res://scripts/pet_button.gd" id="3_tbgi4"]
+[ext_resource type="AudioStream" uid="uid://dj7i1mr8s33ej" path="res://assets/sfx/pop.mp3" id="3_tipki"]
+[ext_resource type="FontFile" uid="uid://ch60ckgolju50" path="res://assets/fonts/DynaPuff-VariableFont_wdth,wght.ttf" id="4_85g3d"]
 [ext_resource type="Script" uid="uid://c2pvxpxcr5ojx" path="res://scripts/item.gd" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://byf5lvn77q0mu" path="res://scenes/tooltip.tscn" id="5_tefeu"]
 [ext_resource type="Script" uid="uid://cjfl034haqax6" path="res://scripts/background.gd" id="6_tefeu"]
+[ext_resource type="AudioStream" uid="uid://bt72a7uviyay5" path="res://assets/sfx/over_the_moon_instrum.mp3" id="7_o6xl0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qpoh"]
-bg_color = Color(0.23921569, 0.3529412, 0.5019608, 1)
+bg_color = Color(0.40583602, 0.44740534, 0.5364088, 1)
+border_width_left = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tefeu"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.7411765)
+shadow_size = 3
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6xl0"]
+bg_color = Color(0.69550276, 0.6955033, 0.6955028, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tipki"]
+bg_color = Color(0.8346142, 0.83461434, 0.8346141, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 1
+shadow_offset = Vector2(2, 2)
 
 [node name="main" type="Control" unique_id=1053706325]
 layout_mode = 3
@@ -18,6 +64,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o5qli")
+
+[node name="bg_music" type="AudioStreamPlayer2D" parent="." unique_id=444931003]
+stream = ExtResource("7_o6xl0")
+volume_db = -15.0
+autoplay = true
+
+[node name="pop" type="AudioStreamPlayer2D" parent="." unique_id=1087938403]
+stream = ExtResource("3_tipki")
+volume_db = -10.0
 
 [node name="mainPanel" type="TextureRect" parent="." unique_id=1928398278]
 layout_mode = 1
@@ -32,6 +87,9 @@ layout_mode = 1
 offset_left = 12.0
 offset_right = 253.0
 offset_bottom = 88.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_85g3d")
 theme_override_font_sizes/font_size = 64
 text = "Clicks: "
 
@@ -68,8 +126,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="shopPanel/VBoxContainer" unique_id=1040779845]
+[node name="shop" type="Label" parent="shopPanel/VBoxContainer" unique_id=1040779845]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_85g3d")
 theme_override_font_sizes/font_size = 80
 text = "SHOP"
 horizontal_alignment = 1
@@ -96,27 +157,41 @@ theme_override_constants/separation = 20
 
 [node name="bone" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=100255145]
 layout_mode = 2
-text = "Bone - 5"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tefeu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o6xl0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tipki")
+text = "Bone"
 script = ExtResource("5_tbgi4")
-itemName = "bone"
+itemName = "Bone"
 itemDesc = "A skin for your cursor! Increases clicks to 2/click."
 itemType = "mouse"
 itemCost = 5
 clickNum = 2
 cursor = "res://assets/sprites/bone.png"
+hover_scale = Vector2(1.1, 1.1)
 
 [node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/bone" unique_id=1322582082 instance=ExtResource("5_tefeu")]
 layout_mode = 0
 
 [node name="ball" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1655809788]
 layout_mode = 2
-text = "Ball - 10"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tefeu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o6xl0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tipki")
+text = "Ball"
 script = ExtResource("5_tbgi4")
-itemName = "ball"
+itemName = "Ball"
 itemDesc = "A skin for your cursor! Increases clicks to 5/click."
 itemType = "mouse"
 clickNum = 5
 cursor = "res://assets/sprites/ball.png"
+hover_scale = Vector2(1.1, 1.1)
 
 [node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/ball" unique_id=1200829809 instance=ExtResource("5_tefeu")]
 layout_mode = 0
@@ -125,14 +200,21 @@ offset_bottom = 49.0
 
 [node name="fih" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=3154255]
 layout_mode = 2
-text = "Fish - 3"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tefeu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o6xl0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tipki")
+text = "Fih"
 script = ExtResource("5_tbgi4")
-itemName = "fish"
+itemName = "Fish"
 itemDesc = "A skin for your cursor! Increases clicks to 1/click."
 itemType = "mouse"
 itemCost = 3
 clickNum = 1
 cursor = "res://assets/sprites/fih.png"
+hover_scale = Vector2(1.1, 1.1)
 
 [node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/fih" unique_id=1593211361 instance=ExtResource("5_tefeu")]
 layout_mode = 0
@@ -141,14 +223,21 @@ offset_bottom = -2.0
 
 [node name="treat" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1702574478]
 layout_mode = 2
-text = "Dog Treat - 20"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tefeu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o6xl0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tipki")
+text = "Dog Treat"
 script = ExtResource("5_tbgi4")
-itemName = "treat"
+itemName = "Treat"
 itemDesc = "A skin for your cursor! Increases clicks to 10/click."
 itemType = "mouse"
 itemCost = 20
 clickNum = 10
 cursor = "res://assets/sprites/treat.png"
+hover_scale = Vector2(1.1, 1.1)
 
 [node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/treat" unique_id=54906792 instance=ExtResource("5_tefeu")]
 layout_mode = 0
@@ -157,6 +246,12 @@ offset_bottom = -53.0
 
 [node name="blue_bg" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=323168151]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tefeu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o6xl0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tipki")
 text = "Blue Background"
 script = ExtResource("6_tefeu")
 itemName = "Blue Background"
@@ -164,6 +259,7 @@ itemDesc = "Themed bg!"
 itemType = "background"
 itemCost = 100
 bg_file = "res://assets/sprites/star-blue.png"
+hover_scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://cbjhinlg0pq4h"
 
 [node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/blue_bg" unique_id=1265030095 instance=ExtResource("5_tefeu")]
@@ -171,6 +267,12 @@ layout_mode = 0
 
 [node name="green_bg" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=592622435]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tefeu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o6xl0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tipki")
 text = "Green Background"
 script = ExtResource("6_tefeu")
 itemName = "Green Background"
@@ -178,6 +280,7 @@ itemDesc = "A green bg!"
 itemType = "background"
 itemCost = 100
 bg_file = "res://assets/sprites/star-green.png"
+hover_scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://cbjhinlg0pq4h"
 
 [node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/green_bg" unique_id=1601588532 instance=ExtResource("5_tefeu")]
@@ -185,6 +288,12 @@ layout_mode = 0
 
 [node name="pink_bg" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=315130245]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tefeu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o6xl0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tipki")
 text = "Pink Background"
 script = ExtResource("6_tefeu")
 itemName = "Pink Background"
@@ -192,6 +301,7 @@ itemDesc = "A pink bg!"
 itemType = "background"
 itemCost = 100
 bg_file = "res://assets/sprites/star-pink.png"
+hover_scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://cbjhinlg0pq4h"
 
 [node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/pink_bg" unique_id=1118841407 instance=ExtResource("5_tefeu")]
@@ -199,6 +309,12 @@ layout_mode = 0
 
 [node name="purple_bg" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=441134338]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_tefeu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o6xl0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tipki")
 text = "Purple Background"
 script = ExtResource("6_tefeu")
 itemName = "Purple Background"
@@ -206,6 +322,7 @@ itemDesc = "A purple bg!"
 itemType = "background"
 itemCost = 100
 bg_file = "res://assets/sprites/star-purple.png"
+hover_scale = Vector2(1.1, 1.1)
 metadata/_custom_type_script = "uid://cbjhinlg0pq4h"
 
 [node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/purple_bg" unique_id=1644501331 instance=ExtResource("5_tefeu")]

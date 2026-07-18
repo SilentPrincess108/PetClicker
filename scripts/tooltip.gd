@@ -1,6 +1,6 @@
 extends PanelContainer
 
-const OFFSET: Vector2 = Vector2.LEFT * 250.0
+const OFFSET: Vector2 = Vector2.LEFT * 300.0
 @onready var label: RichTextLabel = $RichTextLabel
 
 var animation_tween: Tween
