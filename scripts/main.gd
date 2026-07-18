@@ -17,6 +17,8 @@ func _ready() -> void:
 	Globals.connect("backgroundChanged", changeBg)
 	bg_music.stream.loop = true
 	
+	get_tree().get_root().files_dropped.connect(_on_files_dropped)
+	
 func _process(_delta: float) -> void:
 	num_clicks.text = "Clicks: " + str(Globals.clicks)
 
@@ -28,10 +30,14 @@ func _on_pet_button_pressed() -> void:
 func changeBg(bg):
 	main_panel.texture = bg
 
-func _on_upload_pressed() -> void:
-	file_dialog.popup()
+#func _on_upload_pressed() -> void:
+	#file_dialog.popup()
 
 func _on_file_dialog_file_selected(path: String) -> void:
 	var pet_image = load(path)
 	pet.texture_normal = pet_image
 	
+func _on_files_dropped(files):
+	var path = files[0]
+	var pet_image = load(path)
+	pet.texture_normal = pet_image
