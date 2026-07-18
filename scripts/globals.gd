@@ -13,6 +13,8 @@ var currentBg: Button
 var previousBg: Button
 signal backgroundChanged(bg)
 
+signal uploadsUnlocked
+
 func checkClicks(item):
 	if item.itemCost > clicks:
 		print("Srry bro. Need more clicks.")
@@ -25,6 +27,8 @@ func checkClicks(item):
 			changeMouse(item)
 		if item.itemType == "background":
 			changeBackground(item)
+		if item.itemType == "upload":
+			uploadsUnlocked.emit()
 		return true
 
 func changeMouse(item):

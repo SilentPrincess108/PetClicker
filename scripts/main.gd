@@ -6,13 +6,13 @@ extends Control
 @onready var bg_music: AudioStreamPlayer2D = $bg_music
 @onready var pop: AudioStreamPlayer2D = $pop
 
+@onready var upload: TextureButton = $mainPanel/upload
+@onready var file_dialog: FileDialog = $FileDialog
 
-var arrow_cursor = load("res://assets/sprites/default.png")
 var default_bg = load("res://assets/sprites/star-gray.png")
 
 func _ready() -> void:
 	print("game start")
-	Input.set_custom_mouse_cursor(arrow_cursor, Input.CURSOR_ARROW, Vector2(16, 16))
 	main_panel.texture = default_bg
 	Globals.connect("backgroundChanged", changeBg)
 	bg_music.stream.loop = true
@@ -27,3 +27,11 @@ func _on_pet_button_pressed() -> void:
 
 func changeBg(bg):
 	main_panel.texture = bg
+
+func _on_upload_pressed() -> void:
+	file_dialog.popup()
+
+func _on_file_dialog_file_selected(path: String) -> void:
+	var pet_image = load(path)
+	pet.texture_normal = pet_image
+	

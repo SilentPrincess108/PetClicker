@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="pet_clicker"
-run/main_scene="uid://cqtswut1j7iw7"
+run/main_scene="uid://b1r5n54xeo106"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://assets/sprites/icon.svg"
 

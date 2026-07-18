@@ -8,7 +8,10 @@
 [ext_resource type="Script" uid="uid://c2pvxpxcr5ojx" path="res://scripts/item.gd" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://byf5lvn77q0mu" path="res://scenes/tooltip.tscn" id="5_tefeu"]
 [ext_resource type="Script" uid="uid://cjfl034haqax6" path="res://scripts/background.gd" id="6_tefeu"]
+[ext_resource type="FontFile" uid="uid://vsb1dk24vgmb" path="res://assets/fonts/Cause-VariableFont_wght.ttf" id="7_choun"]
 [ext_resource type="AudioStream" uid="uid://bt72a7uviyay5" path="res://assets/sfx/over_the_moon_instrum.mp3" id="7_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://dtltw30h0x0pt" path="res://assets/sprites/folder.png" id="7_ya4ey"]
+[ext_resource type="Script" uid="uid://xrd6hlvt1k3p" path="res://scripts/upload.gd" id="8_eb6dy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qpoh"]
 bg_color = Color(0.40583602, 0.44740534, 0.5364088, 1)
@@ -107,6 +110,23 @@ texture_normal = ExtResource("2_tbgi4")
 script = ExtResource("3_tbgi4")
 metadata/_custom_type_script = "uid://drptp6mt3i2sm"
 
+[node name="upload" type="TextureButton" parent="mainPanel" unique_id=2032079746]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 250.0
+offset_top = 182.0
+offset_right = 373.0
+offset_bottom = 289.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("7_ya4ey")
+script = ExtResource("8_eb6dy")
+
 [node name="shopPanel" type="Panel" parent="." unique_id=1504003899]
 layout_mode = 1
 anchors_preset = 11
@@ -155,11 +175,38 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 20
 
+[node name="uploads" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=58944250]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_choun")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_tefeu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o6xl0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tipki")
+text = "Upload img"
+script = ExtResource("5_tbgi4")
+itemName = "Upload"
+itemDesc = "Allows you to upload an img as a pet!"
+itemType = "upload"
+hover_scale = Vector2(1.1, 1.1)
+metadata/_custom_type_script = "uid://cbjhinlg0pq4h"
+
+[node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/uploads" unique_id=1445629995 instance=ExtResource("5_tefeu")]
+layout_mode = 0
+offset_left = -21.0
+offset_top = 97.0
+offset_right = 179.0
+offset_bottom = 363.0
+
 [node name="bone" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=100255145]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_choun")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_tefeu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_o6xl0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tipki")
@@ -176,33 +223,13 @@ hover_scale = Vector2(1.1, 1.1)
 [node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/bone" unique_id=1322582082 instance=ExtResource("5_tefeu")]
 layout_mode = 0
 
-[node name="ball" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1655809788]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_tefeu")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_o6xl0")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tipki")
-text = "Ball"
-script = ExtResource("5_tbgi4")
-itemName = "Ball"
-itemDesc = "A skin for your cursor! Increases clicks to 5/click."
-itemType = "mouse"
-clickNum = 5
-cursor = "res://assets/sprites/ball.png"
-hover_scale = Vector2(1.1, 1.1)
-
-[node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/ball" unique_id=1200829809 instance=ExtResource("5_tefeu")]
-layout_mode = 0
-offset_top = -51.0
-offset_bottom = 49.0
-
 [node name="fih" type="Button" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=3154255]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_choun")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_tefeu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_o6xl0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tipki")
@@ -226,6 +253,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_choun")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_tefeu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_o6xl0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tipki")
@@ -249,6 +278,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_choun")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_tefeu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_o6xl0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tipki")
@@ -270,6 +301,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_choun")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_tefeu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_o6xl0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tipki")
@@ -291,6 +324,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_choun")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_tefeu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_o6xl0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tipki")
@@ -312,6 +347,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_choun")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_tefeu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_o6xl0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tipki")
@@ -327,5 +364,20 @@ metadata/_custom_type_script = "uid://cbjhinlg0pq4h"
 
 [node name="tooltip" parent="shopPanel/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/purple_bg" unique_id=1644501331 instance=ExtResource("5_tefeu")]
 layout_mode = 0
+offset_left = -21.0
+offset_top = 97.0
+offset_right = 179.0
+offset_bottom = 363.0
+
+[node name="FileDialog" type="FileDialog" parent="." unique_id=1979234787]
+oversampling_override = 1.0
+title = "Open a File"
+initial_position = 2
+dialog_hide_on_ok = true
+file_mode = 0
+access = 2
+root_subfolder = "C:"
 
 [connection signal="pressed" from="mainPanel/CenterContainer/PetButton" to="." method="_on_pet_button_pressed"]
+[connection signal="pressed" from="mainPanel/upload" to="." method="_on_upload_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]

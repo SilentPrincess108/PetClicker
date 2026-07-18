@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://b1r5n54xeo106"]
+
+[ext_resource type="Script" uid="uid://bta1esxxeca32" path="res://scripts/title_screen.gd" id="1_dc4i4"]
+[ext_resource type="Texture2D" uid="uid://bydpxf6tdl2wk" path="res://assets/sprites/star-gray.png" id="1_mgrm8"]
+[ext_resource type="FontFile" uid="uid://ch60ckgolju50" path="res://assets/fonts/DynaPuff-VariableFont_wdth,wght.ttf" id="2_dc4i4"]
+[ext_resource type="FontFile" uid="uid://vsb1dk24vgmb" path="res://assets/fonts/Cause-VariableFont_wght.ttf" id="3_e54dn"]
+[ext_resource type="Script" uid="uid://cbjhinlg0pq4h" path="res://scripts/animated_button.gd" id="4_3yumr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4sdr"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qpoh"]
+bg_color = Color(0.74557996, 0.74558026, 0.74557996, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5jjh"]
+bg_color = Color(0.8132577, 0.8132577, 0.81325763, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="title_screen" type="Control" unique_id=197834181]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dc4i4")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1604449090]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mgrm8")
+
+[node name="Label" type="Label" parent="." unique_id=280192326]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -274.5
+offset_top = -213.0
+offset_right = 274.5
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_dc4i4")
+theme_override_font_sizes/font_size = 100
+text = "Pet Clicker"
+
+[node name="playButton" type="Button" parent="." unique_id=2099209449]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.5
+offset_top = 32.0
+offset_right = 159.5
+offset_bottom = 158.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_e54dn")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_i4sdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8qpoh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_l5jjh")
+text = "PLAY"
+script = ExtResource("4_3yumr")
+metadata/_custom_type_script = "uid://cbjhinlg0pq4h"
+
+[connection signal="pressed" from="playButton" to="." method="_on_play_button_pressed"]
