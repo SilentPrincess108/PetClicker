@@ -185,7 +185,6 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_tefeu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_o6xl0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tipki")
-disabled = true
 text = "Upload img"
 script = ExtResource("5_tbgi4")
 itemName = "Upload"
